@@ -4,7 +4,7 @@ int main(){
 #ifdef HELLO
 	printf("hello");
 #endif
-	printf("  m, world!!");
+	printf("  zm, world!!");
 
 	return 0;
 }
