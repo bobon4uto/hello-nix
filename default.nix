@@ -9,7 +9,7 @@ pkgs.stdenv.mkDerivation {
   buildInputs = [];
 
   buildPhase = ''
-    gcc $src/hello.c -o hello
+    gcc -DHELLO $src/hello.c -o hello
   '';
 
   installPhase = ''
