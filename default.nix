@@ -1,33 +1,43 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+stdenv
 
-pkgs.stdenv.mkDerivation {
-  pname = "hello-world";
-  version = "1.0";
+}:
+
+stdenv.mkDerivation {
+  pname = "hello-world2";
+  version = "2.0";
 
   src = ./. ;
  
+  nativeBuildInputs = [
+		stdenv.cc 
+	];
+#  buildInputs = [
+#	  gnumake
+#  ];
+
   buildInputs = [];
 
   buildPhase = ''
-    gcc -DHELLO $src/hello.c -o hello
+    gcc $src/hello.c -o hello2
   '';
 
   installPhase = ''
     mkdir -p $out/bin
-    mv hello $out/bin/
+    mv hello2 $out/bin/
   '';
 
 
 
 	meta = {
     #homepage = "https://";
-    description = "hello";
+    description = "hello2";
     longDescription = ''
-			hello
+			hello2
     '';
     #license = lib.licenses.mit;
     #platforms = lib.platforms.all;
-    mainProgram = "hello";
+    mainProgram = "hello2";
   };
 }
 
